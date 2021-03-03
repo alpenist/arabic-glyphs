@@ -1,0 +1,46 @@
+{
+    "name": "alpenist/arabic-glyphs",
+    "description": "Provides support for correctly printing Arabic characters with dompdf\n\n",
+    "keywords": [
+        "alpenist",
+        "arabic-glyphs",
+        "laravel"
+    ],
+    "homepage": "https://github.com/alpenist/arabic-glyphs",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Hiro Garabedian",
+            "email": "h.g@signsandcolors.com",
+            "homepage": "https://github.com/alpenist/arabic-glyphs",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^7.4",
+        "illuminate/support": "^5.5|^6|^7|^8"
+    },
+    "autoload": {
+        "psr-4": {
+            "Ait\\ArabicGlyphs\\": "src"
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "0.9-dev"
+        },
+        "laravel": {
+            "providers": [
+                "Ait\\ArabicGlyphs\\ServiceProvider"
+            ],
+            "aliases": {
+                "Glyphs": "Ait\\ArabicGlyphs\\Facades\\GlyphsFacade"
+            }
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
