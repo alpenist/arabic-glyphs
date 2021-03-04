@@ -2,7 +2,9 @@
 
 namespace Ait\ArabicGlyphs;
 
+use Ait\ArabicGlyphs\Facades\GlyphsFacade;
 use Ait\ArabicGlyphs\Support\GlyphConverter;
+use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Support\ServiceProvider as IlluminateServiceProvider;
 
 class ServiceProvider extends IlluminateServiceProvider
@@ -14,11 +16,12 @@ class ServiceProvider extends IlluminateServiceProvider
         $configPath = __DIR__ . '/../config/arabic-glyphs.php';
         $this->mergeConfigFrom($configPath, 'arabic-glyphs');
 
-        $this->app->singleton(GlyphConverter::class, function () {
-            return new GlyphConverter(config('arabic-glyphs'));
+        $this->app->singleton('Glyphs', function (Application $app) {
+
+            return new GlyphConverter(config('arabic-glyphs'), $app->getLocale());
         });
 
-        $this->app->alias('Glyphs', Dompdf::class);
+        $this->app->alias('Glyphs', GlyphConverter::class);
     }
 
     /**
