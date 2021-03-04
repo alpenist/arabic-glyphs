@@ -13,9 +13,7 @@ class GlyphConverter
     public function __construct(array $config = [], string $lang = 'en')
     {
         $this->lang = $lang;
-        if ($lang === 'ar') {
-            $this->converter = new Glyphs($config);
-        }
+        $this->converter = $lang === 'ar' ? new Glyphs($config) : null;
     }
 
     public function convert(string $text): string

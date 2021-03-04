@@ -2,7 +2,6 @@
 
 namespace Ait\ArabicGlyphs;
 
-use Ait\ArabicGlyphs\Facades\GlyphsFacade;
 use Ait\ArabicGlyphs\Support\GlyphConverter;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Support\ServiceProvider as IlluminateServiceProvider;
