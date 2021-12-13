@@ -541,7 +541,7 @@ class Glyphs
             foreach ($nums as $k => $v) {
                 $r_nums[$k] = '${1}' . $v;
             }
-            $output = preg_replace($p_arNums, $r_nums, $output);
+            $output = str_replace($p_arNums, $r_nums, $output);
 
             foreach ($arNums as $k => $v) {
                 $p_arNums[$k] = '/' . $v . '([a-z-\d]+)/ui';
@@ -549,7 +549,7 @@ class Glyphs
             foreach ($nums as $k => $v) {
                 $r_nums[$k] = $v . '${1}';
             }
-            $output = preg_replace($p_arNums, $r_nums, $output);
+            $output = str_replace($p_arNums, $r_nums, $output);
         }
 
         return $output;
