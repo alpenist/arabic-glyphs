@@ -275,6 +275,11 @@ class Glyphs
                     || $prevChar == 'لإ' || $prevChar == 'ل')
                 && (mb_strpos('آأإا', $crntChar) !== false)
             ) {
+                if($this->_prevLink && is_null($chars[$i - 2] ?? null)) {
+                    $output .= '&#x';
+                    $output .= $this->getGlyphs($prevChar . $crntChar, $form) . ';';
+                    continue;
+                }
                 if (mb_strpos($this->_prevLink, $chars[$i - 2]) !== false) {
                     $form++;
                 }
